@@ -10,7 +10,7 @@
 - [ ] Every code cell has a preceding plain-language explanation; charts have axes and captions.
 - [ ] Data dictionary, quality decisions, baseline comparison, error analysis, limitations and ethics are substantive.
 - [ ] No TODOs or template instruction cells remain; remove tags from rewritten explanations.
-- [ ] Work is on tidy_work created from the student's existing main, then reorganized using the template.
+- [ ] Work is on tidy_project created from the student's existing main, then reorganized using the template.
 - [ ] Instructor opens the PR; student authored their commits; main runs after merge.
 
-Static validation cannot certify analysis quality. The instructor records manual review evidence as described in the toolkit. Complete this checklist only after inspection and fresh execution.
+Static validation cannot certify analysis quality. Review this checklist with your instructor. Complete this checklist only after inspection and fresh execution.

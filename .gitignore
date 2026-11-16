@@ -1,9 +1,12 @@
+.ipynb_checkpoints/
 __pycache__/
+.DS_Store
+sample_data/
+.env
+.env.*
 *.pyc
 .venv/
-.ipynb_checkpoints/
-.DS_Store
-generated/
 
-# Supplied student repositories are local reference material, not toolkit content.
+# Local reference material is not part of the student template.
 /examples/
+/generated/
