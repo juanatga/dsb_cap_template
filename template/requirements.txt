@@ -1,0 +1,5 @@
+pandas  # pin the versions you actually used (pip freeze) before submitting
+numpy  # pin the versions you actually used (pip freeze) before submitting
+matplotlib  # pin the versions you actually used (pip freeze) before submitting
+scikit-learn  # pin the versions you actually used (pip freeze) before submitting
+jupyter  # pin the versions you actually used (pip freeze) before submitting

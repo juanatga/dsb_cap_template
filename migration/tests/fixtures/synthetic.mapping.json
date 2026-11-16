@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "source": "analysis.ipynb",
+      "sha256": "03bc5b4c9fb88105cf33ceb60ff5f439414cca2e875afd7dfa2c7262f5a01de1",
+      "action": "notebook",
+      "reason": "Move useful exploration into the standard EDA notebook.",
+      "blocks": [
+        {
+          "target": "notebooks/01_eda.ipynb",
+          "section": 6,
+          "cells": [
+            {
+              "index": 0
+            },
+            {
+              "index": 1
+            }
+          ]
+        }
+      ],
+      "omit": [
+        {
+          "index": 2,
+          "reason": "Retired scratch note retained in original history."
+        }
+      ]
+    },
+    {
+      "source": "measurements.csv",
+      "sha256": "e5b5784801ce49d38008b509626e468c415c78b794c7424a2f9f31b638a56cfe",
+      "action": "copy",
+      "target": "data/raw/measurements.csv",
+      "reason": "Preserve untouched original input."
+    },
+    {
+      "source": "README.md",
+      "sha256": "a1767d28186fc72669bd7afb6284630a7eecaa713202a4cd995c8835036d93d6",
+      "action": "remove",
+      "reason": "Synthetic source README is replaced by the template narrative."
+    }
+  ],
+  "documents": {},
+  "dependencies": [],
+  "notes": [
+    "Synthetic fixture only. Complete writing, provenance, data handoff, and modelling before readiness."
+  ]
+}
