@@ -25,7 +25,7 @@ First save your latest work to your repository's `main` branch. Open Terminal in
   # Create the project folders and add missing template files.
   mkdir -p notebooks data/raw data/processed docs
   # Copy missing template files only; preserve existing files and Git history.
-  for file in README.md SETUP.md REVIEW_CHECKLIST.md LICENSE requirements.txt .gitignore \
+  for file in README.md LICENSE requirements.txt .gitignore \
     data/README.md data/raw/README.md data/processed/README.md docs/README.md \
     notebooks/01_eda.ipynb notebooks/02_modelling.ipynb; do
     if [ ! -e "$file" ]; then
@@ -34,7 +34,7 @@ First save your latest work to your repository's `main` branch. Open Terminal in
   done
 
   # Save the template additions on your working branch, then send it to GitHub.
-  git add README.md SETUP.md REVIEW_CHECKLIST.md LICENSE requirements.txt .gitignore notebooks data docs
+  git add README.md LICENSE requirements.txt .gitignore notebooks data docs
   if ! git diff --cached --quiet; then
     git commit -m "Add project template on tidy_project"
   fi
@@ -69,8 +69,6 @@ Your completed project should have this structure:
 
 ```text
 README.md                    Your project's story and main result
-SETUP.md                     How to run the project
-REVIEW_CHECKLIST.md           What to check before submitting
 LICENSE                      Code license and completed attribution
 requirements.txt             Packages and tested versions
 .gitignore                   Files to keep out of Git
@@ -121,7 +119,17 @@ Use **Add file → Upload files** inside the appropriate folder on GitHub, with 
 
 Files larger than **25 MB** belong in external storage. Document their location and exact acquisition steps in `data/README.md`, and add their local paths to `.gitignore`.
 
-Opening a notebook in Colab does not copy its data or the rest of the repository. Follow your project's [setup instructions](SETUP.md) before running it. Saving a notebook does not save generated files: download small figures or datasets from Colab's Files panel to your computer, then upload them to the correct folder on GitHub. Here, **download means to your computer**.
+Opening a notebook in Colab does not copy its data or the rest of the repository. In a fresh Colab session, replace the account and repository names below and run this setup cell once:
+
+```python
+!git clone --branch tidy_project https://github.com/YOUR_USERNAME/YOUR_EXISTING_REPO.git project
+%cd project
+%pip install -r requirements.txt
+```
+
+Run your analysis from this project folder, using paths such as `data/raw/your_file.csv`. Follow `data/README.md` to obtain any missing files. If `project` already exists, use that checkout rather than cloning again.
+
+ Saving a notebook does not save generated files: download small figures or datasets from Colab's Files panel to your computer, then upload them to the correct folder on GitHub. Here, **download means to your computer**.
 
 ## 5. Complete the project README and supporting files
 
@@ -135,7 +143,7 @@ Also complete the data documentation, license attribution, and tested package ve
 2. Run `02_modelling.ipynb` from a separate fresh session, acquiring those outputs as documented. Do not rely on the first notebook's in-memory variables.
 3. Confirm that the README, figures, and both notebooks are saved on GitHub's `tidy_project` branch.
 4. Once the new versions work, remove superseded notebook copies from this branch. Earlier versions remain in Git history and on `main` until the merge.
-5. Complete the project's `REVIEW_CHECKLIST.md` and send your instructor this link, replacing the account and repository name:
+5. Check that your explanations, data sources, baseline comparison, and limitations are complete. Remove leftover prompts and TODO comments. Send your instructor this link, replacing the account and repository name:
 
 ```text
 https://github.com/YOUR_USERNAME/YOUR_EXISTING_REPO/tree/tidy_project
@@ -183,7 +191,7 @@ python -m pip install -r requirements.txt
 jupyter notebook
 ```
 
-Run 01 then 02 from fresh kernels. See [SETUP.md](SETUP.md) for Colab setup: opening a badge alone does not copy the repository or its data.
+Run 01 then 02 from fresh sessions. In Colab, first clone this repository, enter its folder, and install requirements as shown above (use `!git clone`, `%cd`, and `%pip install` in a code cell). Obtain data as explained in [data/README.md](data/README.md). Opening a badge alone does not copy the repository or its data.
 
 [![Open EDA in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/{OWNER}/{REPO}/blob/{BRANCH}/notebooks/01_eda.ipynb)
 [![Open modelling in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/{OWNER}/{REPO}/blob/{BRANCH}/notebooks/02_modelling.ipynb)
@@ -194,8 +202,6 @@ Run 01 then 02 from fresh kernels. See [SETUP.md](SETUP.md) for Colab setup: ope
 
 ```text
 README.md                  Public project story
-SETUP.md                   Environment and branch workflow
-REVIEW_CHECKLIST.md         Submission review
 LICENSE                    Code license; data may have separate terms
 requirements.txt           Packages and verified versions
 .gitignore                 Files to keep out of Git
