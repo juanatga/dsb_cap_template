@@ -4,64 +4,11 @@ Use this template to organize your existing work into two notebooks: **explorati
 
 **Keep your existing GitHub repository. Work on a branch named `tidy_project`.** Your `main` branch keeps the original project until your instructor reviews and merges your changes. You do not need a fork or a new repository.
 
-## 1. Create your branch and add the template
+## 1. [optional] Create your branch and add the template
 
 Do this setup once in **Terminal on your computer** (on Windows, use **Git Bash**), not in a Colab code cell. You need Git installed and permission to push to your existing GitHub repository. After setup, you can edit the notebooks in Colab.
 
-First save your latest work to your repository's `main` branch. Open Terminal in a folder where you keep projects. In the code below, replace `YOUR_USERNAME` and `YOUR_EXISTING_REPO` with your GitHub username and existing project name. Then copy and run the whole block:
-
-```bash
-(
-  set -e
-
-  # Copy your existing project to your computer and start a working branch.
-  git clone --branch main https://github.com/YOUR_USERNAME/YOUR_EXISTING_REPO.git capstone-project
-  cd capstone-project
-  git switch -c tidy_project
-
-  # Copy the instructor's template to a separate folder on your computer.
-  git clone --depth 1 https://github.com/juanatga/dsb_cap_template.git ../capstone-template
-
-  # Create the project folders and add missing template files.
-  mkdir -p notebooks data/raw data/processed docs
-  # Copy missing template files only; preserve existing files and Git history.
-  for file in README.md LICENSE requirements.txt .gitignore \
-    data/README.md data/raw/README.md data/processed/README.md docs/README.md \
-    notebooks/01_eda.ipynb notebooks/02_modelling.ipynb; do
-    if [ ! -e "$file" ]; then
-      cp "../capstone-template/$file" "$file"
-    fi
-  done
-
-  # Save the template additions on your working branch, then send it to GitHub.
-  git add README.md LICENSE requirements.txt .gitignore notebooks data docs
-  if ! git diff --cached --quiet; then
-    git commit -m "Add project template on tidy_project"
-  fi
-  git push -u origin tidy_project
-)
-```
-
-The commands stop if a step fails. If prompted to authenticate, use your normal GitHub Git credentials; your GitHub account password is not a Git password. Ask your instructor for help if push access is not configured.
-
-**What this does:** creates `tidy_project` from **your own `main`**, then adds the template files from the root of the instructor's repository. It preserves your repository's history and does not merge the instructor's repository history into yours.
-
-**Existing files are kept:** the copy loop adds missing files and skips files with the same name. If you already have a README, notebook, requirements file, or other matching file, you will adapt it manually in the following steps. Keep your existing dependencies and add any needed ones from the starter requirements.
-
-Open your existing repository on GitHub. Use the branch menu near the top of the file list to select **`tidy_project`**. Confirm the template folders are present before continuing.
-
-### If the branch or local folders already exist
-
-Do not rerun the first-time block over your work. If you previously completed setup, return to your local project folder:
-
-```bash
-cd capstone-project
-git status
-git switch tidy_project
-git pull --ff-only origin tidy_project
-```
-
-Save any unfinished local changes before switching or pulling. If setup stopped halfway, ask your instructor to check the error and existing files before retrying. Do not delete your work to clear the error.
+First save your latest work to your repository's `main` branch. Open Terminal in a folder where you keep projects. 
 
 ## 2. Understand the layout
 
@@ -141,15 +88,10 @@ Also complete the data documentation, license attribution, and tested package ve
 
 1. Run `01_eda.ipynb` from a fresh session and save its processed outputs.
 2. Run `02_modelling.ipynb` from a separate fresh session, acquiring those outputs as documented. Do not rely on the first notebook's in-memory variables.
-3. Confirm that the README, figures, and both notebooks are saved on GitHub's `tidy_project` branch.
+3. Confirm that the README, figures, and both notebooks are saved on GitHub's (optionally in the `tidy_project` branch).
 4. Once the new versions work, remove superseded notebook copies from this branch. Earlier versions remain in Git history and on `main` until the merge.
-5. Check that your explanations, data sources, baseline comparison, and limitations are complete. Remove leftover prompts and TODO comments. Send your instructor this link, replacing the account and repository name:
-
-```text
-https://github.com/YOUR_USERNAME/YOUR_EXISTING_REPO/tree/tidy_project
-```
-
-Your instructor opens the pull request to review and merge your work into `main`. Before the final merge, update reproduction links to the final branch as directed by your instructor.
+5. Check that your explanations, data sources, baseline comparison, and limitations are complete. Remove leftover prompts and TODO comments.
+6. [optional] Your instructor opens the pull request to review and merge your work into `main`. Before the final merge, update reproduction links to the final branch as directed by your instructor.
 
 
 ## Project README skeleton
@@ -182,7 +124,7 @@ Start here, then read [EDA](notebooks/01_eda.ipynb), followed by [modelling](not
 
 ## How to reproduce
 
-*Replace the repository and branch placeholders and explain any data access requirements. Use tidy_project while editing; update links to main before submission.*
+*Replace the repository and branch placeholders and explain any data access requirements. [optional] Use tidy_project while editing; update links to main before submission.*
 
 ```bash
 git clone --branch {BRANCH} https://github.com/{OWNER}/{REPO}.git
